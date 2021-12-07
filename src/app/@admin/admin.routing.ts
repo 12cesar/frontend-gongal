@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { AuthGuard } from '../guard/auth.guard';
 
 const routes: Routes = [
     {
@@ -11,6 +12,9 @@ const routes: Routes = [
         children: [
             { path: '', component: DashboardComponent },
             { path: 'usuario', component: UsuarioComponent },
+        ],
+        canActivateChild:[
+            AuthGuard
         ]
     },
     //{ path: 'path/:routeParam', component: MyComponent },

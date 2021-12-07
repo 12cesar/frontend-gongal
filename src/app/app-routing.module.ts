@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NopagefoundComponent } from './@nopagefound/nopagefound/nopagefound.component';
 import { AdminRoutingModule } from './@admin/admin.routing';
 import { PublicRoutingModule } from './@public/public.routing';
+import { AuthRoutingModule } from './@auth/auth.routing';
 
 const routes: Routes=[
   {path:'**', component:NopagefoundComponent},
@@ -17,7 +18,8 @@ const routes: Routes=[
   exports:[
     RouterModule,
     PublicRoutingModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    AuthRoutingModule
   ]
 })
 export class AppRoutingModule { }
