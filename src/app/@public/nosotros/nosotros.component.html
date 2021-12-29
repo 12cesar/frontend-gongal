@@ -1,0 +1,39 @@
+<section class="sub-header">
+    <app-navbar></app-navbar>
+    <h1>Nosotros</h1>
+</section>
+<section class="about-us">
+    <div class="row">
+        <div class="col-lg-12 abouts" *ngFor="let nosotros of listNosotros">
+            <div class="row">
+                <div class="about-col">
+                    <h1>{{nosotros.title}}</h1>
+                    <p [innerHtml]="nosotros.descripcion">.</p>
+                </div>
+                <div class="about-col">
+                    <img src="{{nosotros.img ? nosotros.img : imgdefault}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="container mt-5 mb-3">
+    <div class="blog-post mt-3">
+        <div class="blog-post_img">
+            <img src="../../../assets/images/nueva-requena.jpg" alt="">
+        </div>
+        <div class="blog-post_info">
+            <div class="blog-post_date">
+                <span>Sunday</span>
+                <span>October 27 2019</span>
+            </div>
+            <h1 class="blog-post_title">Shark Sighting</h1>
+            <p class="blog-post_text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem quam, nobis molestias libero
+                recusandae fuga natus nihil iure consequuntur beatae iste quae qui explicabo eius in. Quae aliquam sapiente
+                officiis.
+            </p>
+        </div>
+    </div>
+</div> -->

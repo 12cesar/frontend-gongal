@@ -22,7 +22,7 @@ import { InterceptorService } from './interceptor/interceptor.service';
     AuthModule,
     PublicModule,
     AdminModule,
-    HttpClientModule,
+    HttpClientModule    
   ],
   providers: [
     AuthGuard,

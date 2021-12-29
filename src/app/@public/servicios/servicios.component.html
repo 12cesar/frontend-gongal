@@ -1,0 +1,29 @@
+<section class="sub-header">
+    <app-navbar></app-navbar>
+    <h1>Servicios</h1>
+</section>
+<div class="container mb-5 mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore culpa perspiciatis fugit nulla?
+                    Minus, deleniti commodi consequatur id voluptatibus veritatis at quibusdam molestiae autem,
+                    reiciendis itaque quo magni cum deserunt.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let servicio of listServicio" >
+            <div class="single-service">
+                <div class="service-bg service-bg1" style="background: url('{{servicio.img}}');">
+                    <h2>{{servicio.title}}</h2>
+                </div>
+                <div class="service-text">
+                    <p [innerHtml]="servicio.descripcion">.</p>
+                    <a [routerLink]="['/contacto']" routerLinkActive="router-link-active"  class="btn-area">Contactanos <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

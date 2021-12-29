@@ -1,1 +1,141 @@
-<p>usuario works!</p>
+<div class="card">
+  <div class="card-header">
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="card-tools">
+          <div class="input-group input-group-sm" style="width: 100%;">
+            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-default">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <select class="form-control btn-sm" id="exampleFormControlSelect1" (change)="ShowSelected($event)">
+          <option value="1">Desbloqueado</option>
+          <option value="2">Bloqueado</option>
+        </select>
+      </div>
+      <div class="col-lg-2">
+        <button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#exampleModal"
+          data-whatever="@mdo"><i class="fa fa-plus-square"></i> Crear</button>
+      </div>
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body table-responsive p-0">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Usuario</th>
+          <th>Imagen</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuarios of listUsuario">
+          <td>{{usuarios.name.toLowerCase()}}</td>
+          <td>{{usuarios.lastname.toLowerCase()}}</td>
+          <td>{{usuarios.usuario}}</td>
+          <td><img src="{{usuarios.img ? usuarios.img : imgdefault}}" alt="" class="logo"></td>
+          <td>
+            <div class="btn-group">
+              <button type="button" class="btn btn-info" (click)="editarImagen(usuarios._id)" data-toggle="modal" data-target="#exampleModal2"
+              data-whatever="@mdo">
+                <i class="fas fa-camera-retro 5x"></i>
+              </button>
+              <button type="button" class="btn btn-warning" (click)="editarUsuario(usuarios._id)" data-toggle="modal" data-target="#exampleModal"
+              data-whatever="@mdo">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button type="button" class="btn btn-danger" *ngIf="usuarios.estado"
+                (click)="borrarUsuario(usuarios._id, false)">
+                <i class="fas fa-lock"></i>
+              </button>
+              <button type="button" class="btn btn-danger" *ngIf="!usuarios.estado"
+                (click)="borrarUsuario(usuarios._id, true)">
+                <i class="fas fa-lock-open"></i>
+              </button>
+
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{titulo}} usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelar()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="usuarioForm">
+          <div class="form-group">
+            <label for="recipient-nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="recipient-name" formControlName="name">
+          </div>
+          <div class="form-group">
+            <label for="recipient-apellido" class="col-form-label">Apellido:</label>
+            <input type="text" class="form-control" id="recipient-apellido" formControlName="lastname">
+          </div>
+          <div class="form-group">
+            <label for="recipient-usuario" class="col-form-label">Usuario:</label>
+            <input type="text" class="form-control" id="recipient-usuario" formControlName="usuario">
+          </div>
+          <div class="form-group">
+            <label for="recipient-password" class="col-form-label">Password:</label>
+            <input type="password" class="form-control" id="recipient-password" formControlName="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelar()">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="crearEditarUsuario()"
+          [disabled]="usuarioForm.invalid">{{titulo}} usuario</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true"
+  data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Imagen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelar()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row"> 
+          <div class="col-lg-12 text-center imgPri mb-5">
+            <img src="{{imagenPri}}" class="rounded"> 
+          </div>
+        </div>
+       <div class="col-lg-12 text-center">
+        <button class="contenedor-btn-file bordeado">
+          <i class="fas fa-file"></i>
+          Adjuntar archivo
+          <label for="btn-file"></label>
+          <input type="file" id="btn-file" #fileInput (change)="capturarFile($event)" accept="image/*">
+      </button>
+       </div>
+      
+      </div>
+    </div>
+  </div>
+</div>

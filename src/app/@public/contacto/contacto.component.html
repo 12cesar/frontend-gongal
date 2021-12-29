@@ -1,0 +1,120 @@
+<section class="sub-header">
+  <app-navbar></app-navbar>
+  <h1>Contacto</h1>
+</section>
+<section class="location">
+  <div id="mapa"></div>
+</section>
+<section class="contact-us">
+  <div class="row">
+    <div class="contact-col" *ngFor="let personal of listPersonal">
+      <div>
+        <i class="fas fa-home"></i>
+        <span>
+          <h5>Direccion</h5>
+          <p>{{ address }}</p>
+        </span>
+      </div>
+      <div>
+        <i class="fas fa-phone"></i>
+        <span>
+          <h5>{{ personal.celular }}</h5>
+          <p>Lunes a viernes, 09:00AM a 05:00 PM</p>
+        </span>
+      </div>
+      <div>
+        <i class="fas fa-envelope"></i>
+        <span>
+          <h5>{{ personal.correo }}</h5>
+          <p>Email us your query</p>
+        </span>
+      </div>
+    </div>
+    <div class="contact-col">
+      <form (ngSubmit)="enviar()" #forma="ngForm">
+        <input
+          type="text"
+          #name="ngModel"
+          placeholder="Introduce tu nombre"
+          [(ngModel)]="contact.name"
+          name="name"
+          class="form-control"
+          required
+          [ngClass]="{'is-valid': !name.invalid, 'is-invalid':name.invalid}"
+          pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$"
+        />
+        <input
+          type="email"
+          #correo="ngModel"
+          placeholder="Introduce tu correo electrónico"
+          name="correo"
+          [(ngModel)]="contact.correo"
+          class="form-control"
+          required
+          [ngClass]="{'is-valid': !correo.invalid, 'is-invalid':correo.invalid}"
+          pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        />
+        <input
+          type="text"
+          #celular="ngModel"
+          placeholder="Introduce tu numero celular"
+          name="celular"
+          [(ngModel)]="contact.celular"
+          class="form-control"
+          required
+          [ngClass]="{'is-valid': !celular.invalid, 'is-invalid':celular.invalid}"
+          pattern="^[0-9]*$"
+        />
+        <input
+          type="text"
+          #empresa="ngModel"
+          placeholder="Introduce tu empresa"
+          name="empresa"
+          [(ngModel)]="contact.empresa"
+          class="form-control"
+          required
+          pattern="^((?!badword).)*$"
+          [ngClass]="{'is-valid': !empresa.invalid, 'is-invalid':empresa.invalid}"
+        />
+        <select
+          name="servicio"
+          #servicio="ngModel"
+          for="servicio"
+          [(ngModel)]="contact.servicio"
+          class="form-control"
+          required
+          pattern="^((?!badword).)*$"
+          [ngClass]="{'is-valid': !servicio.invalid, 'is-invalid':servicio.invalid}"
+          style="height: 60px;"
+        >
+          <option value="">Selecciona una opcion</option>
+          <option
+            *ngFor="let servicio of listServicios"
+            value="{{ servicio._id }}"
+          >
+            {{ servicio.title }}
+          </option>
+        </select>
+        <textarea
+          rows="8"
+          #mensaje="ngModel"
+          placeholder="Mensaje"
+          required
+          name="mensaje"
+          [(ngModel)]="contact.mensaje"
+          class="form-control"
+          pattern="^((?!badword).)*$"
+          [ngClass]="{'is-valid': !mensaje.invalid, 'is-invalid':mensaje.invalid}"
+          required
+        ></textarea>
+        <button
+          type="submit"
+          [disabled]="!forma.valid"
+          class="hero-btn red-btn"
+        >
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -2,46 +2,30 @@
 <footer>
     <div class="container-footer-all">
         <div class="container-body">
-            <div class="colum1">
+            <div class="colum1" *ngFor="let personal of listPersonal">
                 <h1>Mas informacion de la empresa</h1>
-                <p>Somos una empresa que brinda soluciones innovadoras para satisfacer las necesidades de su
-                    empresa.Nos
-                    aseguramos de que se simplifique el trabajo y mejore la productividad. Le ofrecemos lo que
-                    necesita
-                    para poner en marcha su transformacion digital.</p>
+                <p [innerHtml]="personal.descripcion">.</p>
             </div>
             <div class="colum2">
                 <h1>Redes Sociales</h1>
-                <div class="row2">
-                    <img src="./assets/images/facebook2.png">
-                    <label>Facebook</label>
-                </div>
-                <div class="row2">
-                    <img src="./assets/images/instagram8.png">
-                    <label>Facebook</label>
-                </div>
-                <div class="row2">
-                    <img src="./assets/images/whatsapp2.png">
-                    <label>Facebook</label>
-                </div>
-                <div class="row2">
-                    <img src="./assets/images/google2.png">
-                    <label>Facebook</label>
+                <div class="row2" *ngFor="let social of listSocial">
+                    <a href="{{social.enlace}}" target="_blank"><img src="{{social.img ? social.img : imgdefault}}">
+                        <label>{{social.title}}</label></a>
                 </div>
             </div>
-            <div class="colum3">
+            <div class="colum3" *ngFor="let personal of listPersonal">
                 <h1>Informacion contactos</h1>
                 <div class="row3">
                     <img src="./assets/images/home2.png">
-                    <label>Jr. Comandante Barrera N° 417,<br> Pucallpa - Perú</label>
+                    <label>{{address}},<br> Pucallpa - Perú</label>
                 </div>
                 <div class="row3">
                     <img src="./assets/images/telefono2.png">
-                    <label>945 140 379</label>
+                    <label>{{personal.celular}}</label>
                 </div>
                 <div class="row3">
                     <img src="./assets/images/mail2.png">
-                    <label>gongal.soft@gmail.com</label>
+                    <label>{{personal.correo}}</label>
                 </div>
             </div>
         </div>

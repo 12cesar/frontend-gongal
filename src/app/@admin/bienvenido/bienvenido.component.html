@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card card-success collapsed-card">
+        <div class="card-header">
+          <h3 class="card-title">Actualizar Datos</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="welcomeForm" (ngSubmit)="editarWelcome()">
+            <div class="form-group">
+              <label for="inputSubject">Subject</label>
+              <input type="email" id="inputSubject" class="form-control" formControlName="subject" >
+            </div>
+            <div class="form-group">
+              <label for="inputHtml">Descripcion</label>
+              <angular-editor formControlName="html"></angular-editor>
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-success" [disabled]="welcomeForm.invalid"
+              >Editar Welcome</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <div class="col-md-12">
+        <div class="card card-success collapsed-card">
+          <div class="card-header">
+            <h3 class="card-title">Actualizar Imagen</h3>
+    
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="form-group text-center principal" >
+              <img src="{{imagenDefault}}">
+             </div>
+             <div class="form-group text-center">
+               <button class="contenedor-btn-file bordeado">
+                 <i class="far fa-file-image"></i>
+                 Adjuntar Imagen
+                 <label for="btn-file"></label>
+                 <input type="file" id="btn-file" #fileInput (change)="capturarFile($event)" accept="image/*">
+             </button>
+             </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+</div>

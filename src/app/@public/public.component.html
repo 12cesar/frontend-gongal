@@ -1,5 +1,14 @@
-<app-header></app-header>
-
+<div class="contenedor">
+    <input type="checkbox" id="btn-mas">
+    <div class="redes">
+        <a *ngFor="let social of listSocial" href="{{social.enlace}}" class="fab fa-{{social.title.toLowerCase()}}"
+            target="_blank"></a>
+        <a class="far fa-comments toastsDefaultBottomRight"></a>
+    </div>
+    <div class="btn-mas">
+        <label for="btn-mas" class="fa fa-plus"></label>
+    </div>
+</div>
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>

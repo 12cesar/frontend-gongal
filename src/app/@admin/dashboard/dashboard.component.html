@@ -1,1 +1,62 @@
-<p>dashboard works!</p>
+<div class="row">
+  <div class="col-lg-6 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>{{totalMensaje}}</h3>
+
+        <p>Mensajes</p>
+      </div>
+      <div class="icon">
+        <i class="icon far fa-envelope"></i>
+      </div>
+      <a [routerLink]="['/admin/mensaje']" routerLinkActive="router-link-active"  class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-6 col-6">
+    <!-- small box -->
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>{{totalServicio}}</h3>
+
+        <p>Servicios</p>
+      </div>
+      <div class="icon">
+        <i class="icon fab fa-servicestack"></i>
+      </div>
+      <a [routerLink]="['/admin/servicio']" routerLinkActive="router-link-active"  class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-6 col-6">
+    <!-- small box -->
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3>{{totalTecnologia}}</h3>
+
+        <p>Tecnologias</p>
+      </div>
+      <div class="icon">
+        <i class="icon fas fa-microchip"></i>
+      </div>
+      <a [routerLink]="['/admin/tecnologia']" routerLinkActive="router-link-active"  class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-6 col-6">
+    <!-- small box -->
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3>{{totalBeneficio}}</h3>
+
+        <p>Beneficios</p>
+      </div>
+      <div class="icon">
+        <i class="icon fas fa-briefcase" name=""></i>
+      </div>
+      <a [routerLink]="['/admin/beneficio']" routerLinkActive="router-link-active"  class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+</div>

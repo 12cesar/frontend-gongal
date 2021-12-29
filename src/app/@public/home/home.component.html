@@ -1,38 +1,24 @@
+<section class="header" *ngFor="let nosotros of listNosotros"  style="background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url({{nosotros.img}});">
+    <app-navbar></app-navbar>
+    <div class="text-box">
+        <h1>{{nosotros.title.toUpperCase()}}</h1>
+        <p [innerHtml]="nosotros.descripcion">.</p>
+        <a [routerLink]="['/nosotros']" routerLinkActive="router-link-active"  class="hero-btn">Visítanos para saber más</a>
+    </div>
+</section>
 <!---------nuestros servicios--------------->
-<section class="course">
-    <h1>Servicios que ofrecemos</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ipsa deleniti doloremque, ipsum id quidem.
-        Sunt, veritatis soluta! Quae quasi sed accusantium quas, odit ipsam. Voluptatibus cumque harum corporis
-        ipsa.</p>
-    <div class="row">
-        <div class="col-lg-4 pri mr-3 ">
-            <div class="course-col-1 col-lg-12">
-                <h3>Desarrollamos Software</h3>
-                <p>Creamos soluciones de sistema de acuerdo a la necesidad de su empresa, integrando las mejores
-                    tecnologias del mercado.</p>
-            </div>
-            <div class="cartabol-1">
-                hola
-            </div>
-        </div>
-        <div class="col-lg-4 seg">
-            <div class="course-col-1 col-lg-12">
-                <h3>Diseños Web</h3>
-                <p>Creamos paginas web aplicando diseños increibles que cumplan con el objetivo de su negocio.</p>
-            </div>
-            <div class="cartabol-1">
-                hola
-            </div>
-        </div>
-        <div class="col-lg-4 ter">
-            <div class="course-col-1 col-lg-12">
-                <h3>Aplicativos Móviles</h3>
-                <p>Creamos aplicaciones de calidad enfocados en dispositivos móviles que ayuden al crecimiento de su
-                    negocio.</p>
-            </div>
-            <div class="cartabol-1">
-                hola
-            </div>
+<section class="services mt-5">
+    <div class="s-heading">
+        <h1>Services</h1>
+        <p>We Provide the best in classs services for our Customers</p>
+    </div>
+    <div class="s-box-container">
+        <div class="s-box" *ngFor="let servicio of listServicio">
+            <div class="bar"></div>
+            <img src="{{servicio.logo ? servicio.logo : imgdefault}}" alt="1">
+            <h1>{{servicio.title}}</h1>
+            <p [innerHtml]="servicio.descripcion"></p>
+            <a [routerLink]="['/servicios']" routerLinkActive="router-link-active"  class="s-btn">More</a>
         </div>
     </div>
 </section>
@@ -44,22 +30,10 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae cum molestias explicabo eveniet, nisi et
         officia dolorum. Earum, voluptatibus error, nemo dolorum hic ea praesentium delectus ex sint non fuga?</p>
     <div class="row">
-        <div class="campus-col">
-            <img src="./assets/images/node.png">
+        <div class="campus-col" *ngFor="let tecnologia of listTecnologia">
+            <img src="{{tecnologia.img ? tecnologia.img : imgdefault}}">
             <div class="layer">
-                <h3>NODE JS</h3>
-            </div>
-        </div>
-        <div class="campus-col">
-            <img src="./assets/images/angular.png">
-            <div class="layer">
-                <h3>ANGULAR</h3>
-            </div>
-        </div>
-        <div class="campus-col">
-            <img src="./assets/images/android2.jpg">
-            <div class="layer">
-                <h3>ANDROID</h3>
+                <h3>{{tecnologia.title}}</h3>
             </div>
         </div>
     </div>
@@ -73,31 +47,17 @@
         dolorem obcaecati optio alias provident in debitis sequi cumque praesentium quod? Unde maiores aperiam
         fugiat officiis?</p>
     <div class="row">
-        <div class="facilities-col">
-            <img src="./assets/images/trajemedida.jpg">
-            <h3>Traje a medida</h3>
-            <p>Desarrollado mediante la utilización de la última tecnología actualizada específicamente para
-                satisfacer los requisitos de negocio del cliente.</p>
-        </div>
-        <div class="facilities-col">
-            <img src="./assets/images/integracion.jpg">
-            <h3>Integración</h3>
-            <p>Solución para la integración de programas, las empresas pueden disfrutar de los beneficios de
-                trabajar con una aplicación de software diseñado a medida para
-                integrar múltiples procesos</p>
-        </div>
-        <div class="facilities-col">
-            <img src="./assets/images/soporte.jpg">
-            <h3>Soporte</h3>
-            <p>Beneficio que se obtiene con las aplicaciones de negocio personalizadas es un plan de apoyo técnico
-                eficiente y fiable</p>
+        <div class="facilities-col" *ngFor="let beneficio of listBeneficio">
+            <img src="{{beneficio.img ? beneficio.img : imgdefault}}">
+            <h3>{{beneficio.title}}</h3>
+            <p [innerHtml]="beneficio.descripcion">.</p>
         </div>
     </div>
 </section>
 
 
 <!---------testimonios----------->
-    <section class="testimonials">
+<!--     <section class="testimonials">
     <h1>Testimonios</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nihil possimus, quae, quisquam blanditiis
         dolorem obcaecati optio alias provident in debitis sequi cumque praesentium quod? Unde maiores aperiam
@@ -128,12 +88,12 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!-------frase baner------------>
    <section class="cta">
     <h1>¿Quieres tu propia página web?<br>¡Hablemos de tu empresa!</h1>
-    <a href="" class="hero-btn">CONTACTANOS</a>
+    <a [routerLink]="['/contacto']" routerLinkActive="router-link-active"  class="hero-btn">CONTACTANOS</a>
 </section>
 

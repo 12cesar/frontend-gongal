@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card card-success collapsed-card">
+      <div class="card-header">
+        <h3 class="card-title">Actualizar Datos</h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="personalForm" (ngSubmit)="editarPersonal()">
+          <div class="form-group">
+            <label for="inputCorreo">Correo</label>
+            <input type="email" id="inputCorreo" class="form-control" formControlName="correo" >
+          </div>
+          <div class="form-group">
+            <label for="inputCelular">Celular</label>
+            <input type="text" id="inputCelular" class="form-control" formControlName="celular">
+          </div>
+          <div class="form-group">
+            <label for="inputDescription">Descripcion</label>
+            <angular-editor formControlName="descripcion"></angular-editor>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-success" [disabled]="!personalForm.valid"
+            >Editar Personal</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <div class="col-md-4">
+    <div class="card card-success collapsed-card">
+      <div class="card-header">
+        <h3 class="card-title">Actualizar Logo</h3>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group text-center logo" >
+          <img src="{{imgdefaultLogo}}">
+         </div>
+         <div class="form-group text-center">
+           <button class="contenedor-btn-file bordeado">
+             <i class="far fa-file-image"></i>
+             Adjuntar Imagen
+             <label for="btn-file"></label>
+             <input type="file" id="btn-file" #fileInputLogo (change)="capturarFileLogo($event)" accept="image/*">
+         </button>
+         </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <div class="col-md-12">
+    <div class="card card-success collapsed-card">
+      <div class="card-header">
+        <h3 class="card-title">Actualizar imagen header</h3>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group text-center principal" >
+          <img src="{{imgdefaultPrincipal}}" >
+         </div>
+         <div class="form-group text-center">
+           <button class="contenedor-btn-file bordeado">
+             <i class="far fa-file-image"></i>
+             Adjuntar Imagen
+             <label for="btn-files"></label>
+             <input type="file" id="btn-files" #fileInputPrincipal (change)="capturarFilePrincipal($event)" accept="image/*">
+         </button>
+         </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <div class="col-md-12">
+    <div class="card card-success collapsed-card">
+      <div class="card-header">
+        <h3 class="card-title">Actualizar imagen contacto</h3>
+
+        <div   class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group text-center contacto">
+         <img src="{{imgdefaultContacto}}" alt="">
+        </div>
+        <div class="form-group text-center">
+          <button class="contenedor-btn-file bordeado">
+            <i class="far fa-file-image"></i>
+            Adjuntar Imagen
+            <label for="btn-filex"></label>
+            <input type="file" id="btn-filex" #fileInputContacto (change)="capturarFileContacto($event)" accept="image/*">
+        </button>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
