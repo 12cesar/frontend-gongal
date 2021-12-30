@@ -17,7 +17,7 @@
  .redes a, .btn-mas label{
     display: block;
     text-decoration: none;
-    background: #cc2b2b;
+    background: #ec5d24;
     color: #fff;
     width: 55px;
     height: 55px;
@@ -43,7 +43,7 @@
  }
  .btn-mas label{
     cursor: pointer;
-    background: #f44141;
+    background: #ec5d24;
     font-size: 23px;
  }
  #btn-mas:checked ~ .btn-mas label{

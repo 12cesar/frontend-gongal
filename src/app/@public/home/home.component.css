@@ -59,7 +59,7 @@
   width: 140px;
   height: 40px;
   border-radius: 20px;
-  border: 1px solid rgba(74, 144, 226, 0.5);
+  border: 1px solid #ec5d24;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,8 +70,8 @@
   transition: all ease 0.3s;
 }
 .s-btn:hover{
-  background-color: #4a90e2;
-  border: 1px solid #4a90e2;
+  background-color: #ec5d24;
+  border: 1px solid #ec5d24;
   color: #FFFFFF!important;
   transition: all ease 0.3s;
 }
@@ -82,7 +82,7 @@
   left: 33%;
   top: 0px;
   transform: translateX(-50deg);
-  background-color: #4a90e2;
+  background-color: #ec5d24;
   border-radius: 0px 0px 10px 10px;
   display: none;
   animation: bar 0.5s;
