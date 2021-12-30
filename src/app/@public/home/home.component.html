@@ -9,16 +9,16 @@
 <!---------nuestros servicios--------------->
 <section class="services mt-5">
     <div class="s-heading">
-        <h1>Services</h1>
-        <p>We Provide the best in classs services for our Customers</p>
+        <h1>Nuestros Servicios</h1>
+        <p>Brindamos soluciones innovadoras destinadas a satisfacer las necesidades de tu empresa.</p>
     </div>
     <div class="s-box-container">
-        <div class="s-box" *ngFor="let servicio of listServicio">
+        <div class="s-box text-center" *ngFor="let servicio of listServicio">
             <div class="bar"></div>
             <img src="{{servicio.logo ? servicio.logo : imgdefault}}" alt="1">
             <h1>{{servicio.title}}</h1>
-            <p [innerHtml]="servicio.descripcion"></p>
-            <a [routerLink]="['/servicios']" routerLinkActive="router-link-active"  class="s-btn">More</a>
+            <p [innerHtml]="servicio.descripcion.substring(0,100).concat('...')">...</p>
+            <a [routerLink]="['/servicios']" routerLinkActive="router-link-active"  class="s-btn">Mas</a>
         </div>
     </div>
 </section>
@@ -27,13 +27,13 @@
 <!-----------nuestras tecnologias----------->
 <section class="campus">
     <h1>Nuestras Tecnologias</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae cum molestias explicabo eveniet, nisi et
-        officia dolorum. Earum, voluptatibus error, nemo dolorum hic ea praesentium delectus ex sint non fuga?</p>
+    <p>Ofrecemos implementación de nuevas tecnologías enfocados en el desarrollo de software.</p>
     <div class="row">
         <div class="campus-col" *ngFor="let tecnologia of listTecnologia">
             <img src="{{tecnologia.img ? tecnologia.img : imgdefault}}">
-            <div class="layer">
+            <div class="layer text-center">
                 <h3>{{tecnologia.title}}</h3>
+                <p [innerHtml]="tecnologia.descripcion" class="text-center"></p>
             </div>
         </div>
     </div>
@@ -43,9 +43,7 @@
 <!-------Nuestros Clientes------------>
     <section class="facilities">
     <h1>Nuestros Beneficios</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nihil possimus, quae, quisquam blanditiis
-        dolorem obcaecati optio alias provident in debitis sequi cumque praesentium quod? Unde maiores aperiam
-        fugiat officiis?</p>
+    <p>Nos aseguramos de que se simplifique el trabajo y mejore la productividad de tu empresa.</p>
     <div class="row">
         <div class="facilities-col" *ngFor="let beneficio of listBeneficio">
             <img src="{{beneficio.img ? beneficio.img : imgdefault}}">
