@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonalService } from 'src/app/@servicios/admin/personal.service';
 import { GeneralService } from 'src/app/@servicios/public/general.service';
+import { closeAlert, loadData } from 'src/app/function/cargando';
 import { General, ResultGeneral } from 'src/app/interface/general.interface';
 import { ResultPersonal } from 'src/app/interface/personal.interface';
 
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   listTecnologia:General[]=[];
   listBeneficio:General[]=[];
   listNosotros: General[]=[];
-  
+  cargar?: boolean = true;
   imgdefault:string = 'https://res.cloudinary.com/dertftoym/image/upload/v1638987062/no-image_tvywlm.jpg';
   constructor(private generalService: GeneralService) { }
 
@@ -22,6 +23,9 @@ export class HomeComponent implements OnInit {
     this.mostrarGeneral();
   }
   mostrarGeneral(){
+    if (this.cargar) {
+      loadData('Cargando', 'Espere mientras carga la informacion')
+    }
     this.generalService.getGeneral('servicio').subscribe(
       (data:ResultGeneral)=>{
         this.listServicio = data.modelo
@@ -49,6 +53,10 @@ export class HomeComponent implements OnInit {
     this.generalService.getGeneral('nosotros').subscribe(
       (data:ResultGeneral)=>{
         this.listNosotros = data.modelo;
+        if (this.cargar) {
+          closeAlert();
+        }
+        this.cargar = false;
       },
       (error)=>{
         console.log(error);
